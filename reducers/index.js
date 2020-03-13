@@ -4,7 +4,7 @@ import { initialState } from "../store";
 function checkDuplicate(events, event) {
     var found = false;
     events.map(e => {
-        if (e.name === event.name) {
+        if (e.key === event.key) {
             found = true
         }
     });

@@ -8,51 +8,61 @@ import GestureRecognizer from 'react-native-swipe-gestures';
 const events = 
 [
     {
+        key: 1,
         name: 'Metallica Concert',
         location: 'Palace Grounds',
         entryType: '(paid entry)'
     },
     {
+        key: 2,
         name: 'Saree Exhibition',
         location: 'Malleswaram Grounds',
         entryType: '(free entry)'
     },
     {
+        key: 3,
         name: 'Wine tasting event',
         location: 'Links Brewery',
         entryType: '(paid entry)'
     },
     {
+        key: 4,
         name: 'Startups Meet',
         location: 'Kanteerava Indoor Stadium',
         entryType: '(paid entry)'
     },
     {
+        key: 5,
         name: 'Summer Noon Party',
         location: 'Kumara Park',
         entryType: '(paid entry)'
     },
     {
+        key: 6,
         name: 'Rock and Roll nights',
         location: 'Sarjapur Road',
         entryType: '(paid entry)'
     },
     {
+        key: 7,
         name: 'Barbaque Fridays ',
         location: 'Whitefield',
         entryType: '(paid entry)'
     },
     {
+        key: 8,
         name: 'Summer Workshop',
         location: 'Indiranagar',
         entryType: '(free entry)'
     },
     {
+        key: 9,
         name: 'Impressions & Expressions',
         location: 'MG Road',
         entryType: '(free entry)'
     },
     {
+        key: 10,
         name: 'Italian Carnival',
         location: 'Electronic City',
         entryType: '(free entry)'
