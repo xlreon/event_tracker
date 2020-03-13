@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { ListItem, Card } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default class ListView extends Component {
@@ -14,12 +14,13 @@ export default class ListView extends Component {
             <ScrollView style={styles.container}>
             {
                 this.props.events.map((l, i) => (
-                <ListItem
-                    key={i}
-                    title={l.name}
-                    subtitle={l.location}
-                    bottomDivider
-                />
+                <Card>
+                    <ListItem
+                        key={i}
+                        title={l.name}
+                        subtitle={l.location}
+                    />
+                </Card>
                 ))
             }
         </ScrollView>
