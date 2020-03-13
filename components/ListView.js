@@ -9,6 +9,8 @@ export default class ListView extends Component {
         super(props);
     }
 
+    onPressHandler = (l) => this.props.navigation.navigate('Details',{event: l})
+
     render() {
         return (
             <ScrollView style={styles.container}>
@@ -19,6 +21,7 @@ export default class ListView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
+                        onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
                 ))

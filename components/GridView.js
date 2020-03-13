@@ -9,6 +9,8 @@ export default class GridView extends Component {
         super(props);
     }
 
+    onPressHandler = (l) => this.props.navigation.navigate('Details',{event: l})
+
     render() {
         return (
             <ScrollView>
@@ -21,6 +23,7 @@ export default class GridView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
+                        onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
                     ))
@@ -34,6 +37,7 @@ export default class GridView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
+                        onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
                     ))

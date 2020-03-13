@@ -53,11 +53,6 @@ const events =
     }
 ]
 
-const views = {
-    0: <ListView1 events={events}/>,
-    1: <GridView events={events}/>
-}
-
 export default class HomeScreen extends Component {
     constructor () {
         super()
@@ -67,6 +62,15 @@ export default class HomeScreen extends Component {
       }
 
     updateIndex =  (selectedIndex) => this.setState({selectedIndex})
+
+    getView = (current) => {
+        const navigation = this.props.navigation
+        const views = {
+            0: <ListView1 events={events} navigation={navigation}/>,
+            1: <GridView events={events} navigation={navigation}/>
+        }
+        return views[current]
+    }
       
     render() {
         const name = this.props.route.params.name;
@@ -93,7 +97,7 @@ export default class HomeScreen extends Component {
                     buttons={buttons}
                     containerStyle={{height: 40}}
                 />
-                {views[selectedIndex]}
+                {this.getView(selectedIndex)}
             </View>
         );
     }
