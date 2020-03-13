@@ -1,12 +1,61 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Text, ButtonGroup } from 'react-native-elements';
-import ListView from '../components/ListView';
+import ListView1 from '../components/ListView';
 import GridView from '../components/GridView';
 
+const events = 
+[
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    },
+    {
+        name: 'Metallica Concert',
+        location: 'Palace Grounds',
+        entryType: '(paid entry)'
+    }
+]
+
 const views = {
-    0: <ListView events={'yo'}/>,
-    1: <GridView events={'hey'}/>
+    0: <ListView1 events={events}/>,
+    1: <GridView events={events}/>
 }
 
 export default class HomeScreen extends Component {
@@ -27,15 +76,17 @@ export default class HomeScreen extends Component {
         const { selectedIndex } = this.state
         return (
             <View style={styles.container}>
-                <Avatar
-                    size="xlarge"
-                    rounded
-                    title={firstLetter+lastName}
-                    activeOpacity={0.7}
-                />
-                <Text h3>
-                    {name}
-                </Text>
+                <View style={styles.userDetails}>
+                    <Avatar
+                        size="xlarge"
+                        rounded
+                        title={firstLetter+lastName}
+                        activeOpacity={0.7}
+                    />
+                    <Text h3>
+                        {name}
+                    </Text>
+                </View>
                 <ButtonGroup
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
@@ -54,7 +105,11 @@ const styles = StyleSheet.create({
       paddingTop: 30,
       flexDirection: "column",
       backgroundColor: '#fff',
-      alignItems: 'center',
+      alignItems: "stretch",
       justifyContent: "flex-start",
+    },
+    userDetails: {
+        flexDirection: "column",
+        alignItems: "center",
     }
 })
