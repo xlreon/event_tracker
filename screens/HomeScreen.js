@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { Avatar, Text, ButtonGroup } from 'react-native-elements';
 import ListView1 from '../components/ListView';
 import GridView from '../components/GridView';
+import GestureRecognizer from 'react-native-swipe-gestures';
 
 const events = 
 [
@@ -85,6 +86,9 @@ export default class HomeScreen extends Component {
         const { selectedIndex } = this.state
         return (
             <View style={styles.container}>
+            <GestureRecognizer
+                onSwipeLeft={() => this.props.navigation.navigate('TrackedEvents')}
+            >
                 <View style={styles.userDetails}>
                     <Avatar
                         size="xlarge"
@@ -103,6 +107,7 @@ export default class HomeScreen extends Component {
                     containerStyle={{height: 40}}
                 />
                 {this.getView(selectedIndex)}
+            </GestureRecognizer>
             </View>
         );
     }

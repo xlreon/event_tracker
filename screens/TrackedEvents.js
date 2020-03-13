@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import { ListItem, Card } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Card, ListItem } from 'react-native-elements';
+import { connect } from 'react-redux';
 
-export default class ListView extends Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    onPressHandler = (l) => this.props.navigation.navigate('Details',{event: l})
-
+class TrackedEvents extends Component {
     render() {
         return (
             <ScrollView>
@@ -20,7 +14,7 @@ export default class ListView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
-                        onPress={() => this.onPressHandler(l)}
+                        // onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
                 ))
@@ -29,3 +23,11 @@ export default class ListView extends Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        events: state.events,
+    }
+}
+
+export default connect(mapStateToProps, null)(TrackedEvents);

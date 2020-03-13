@@ -1,12 +1,21 @@
 import { AppActions } from "../actions";
 import { initialState } from "../store";
 
+function checkDuplicate(events, event) {
+    var found = false;
+    events.map(e => {
+        if (e.name === event.name) {
+            found = true
+        }
+    });
+    return found
+}
+
 function reducer(state = initialState, action) {
     const { type, payload } = action;
-    console.log("<>", payload)
     switch (type) {
         case AppActions.ADD_EVENT:
-            return {...state, events: [...state.events, payload]}
+            return {...state, events: checkDuplicate(state.events, payload) ? [...state.events] : [...state.events, payload]}
         case AppActions.DELETE_EVENT:
             return state
         case AppActions.UPDATE_EVENT:

@@ -2,6 +2,7 @@ import React from 'react';
 import StartScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
 import EventDetails from './screens/EventDetails';
+import TrackedEvents from './screens/TrackedEvents';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from "react-redux";
@@ -28,6 +29,10 @@ export default class App extends React.Component {
             name="Details" 
             component={EventDetails}
           />
+          <Stack.Screen 
+          name="TrackedEvents" 
+          component={TrackedEvents}
+        />
         </Stack.Navigator>
       </NavigationContainer>
       </Provider>
