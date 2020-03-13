@@ -23,6 +23,7 @@ export default class GridView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
+                        containerStyle={{height: 100}}
                         onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
@@ -37,6 +38,7 @@ export default class GridView extends Component {
                         key={i}
                         title={l.name}
                         subtitle={l.location}
+                        containerStyle={{height: 100}}
                         onPress={() => this.onPressHandler(l)}
                     />
                 </Card>
@@ -53,6 +55,7 @@ export default class GridView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        padding: 20
     }
 })

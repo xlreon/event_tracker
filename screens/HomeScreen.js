@@ -12,44 +12,49 @@ const events =
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
+        name: 'Saree Exhibition',
+        location: 'Malleswaram Grounds',
+        entryType: '(free entry)'
+    },
+    {
+        name: 'Wine tasting event',
+        location: 'Links Brewery',
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
+        name: 'Startups Meet',
+        location: 'Kanteerava Indoor Stadium',
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
+        name: 'Summer Noon Party',
+        location: 'Kumara Park',
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
+        name: 'Rock and Roll nights',
+        location: 'Sarjapur Road',
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
+        name: 'Barbaque Fridays ',
+        location: 'Whitefield',
         entryType: '(paid entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
-        entryType: '(paid entry)'
+        name: 'Summer Workshop',
+        location: 'Indiranagar',
+        entryType: '(free entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
-        entryType: '(paid entry)'
+        name: 'Impressions & Expressions',
+        location: 'MG Road',
+        entryType: '(free entry)'
     },
     {
-        name: 'Metallica Concert',
-        location: 'Palace Grounds',
-        entryType: '(paid entry)'
+        name: 'Italian Carnival',
+        location: 'Electronic City',
+        entryType: '(free entry)'
     }
 ]
 
