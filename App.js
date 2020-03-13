@@ -4,6 +4,8 @@ import HomeScreen from './screens/HomeScreen';
 import EventDetails from './screens/EventDetails';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const Stack = createStackNavigator();
 
@@ -11,6 +13,7 @@ export default class App extends React.Component {
   
   render() {
     return (
+      <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen 
@@ -27,6 +30,7 @@ export default class App extends React.Component {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </Provider>
     );
   }
 }

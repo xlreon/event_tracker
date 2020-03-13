@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 import { Text, Card, Button } from 'react-native-elements';
+import { addEvent } from '../actions';
 
-export default class EventDetails extends Component {
+class EventDetails extends Component {
 
 
-    onTrack = () => {
-
-    }
+    onTrack = () => this.props.addEvent(this.props.route.params.event)
 
     render() {
         const event = this.props.route.params.event;
@@ -36,3 +36,7 @@ const styles = StyleSheet.create({
         padding: 15,
     }
 });
+
+export default connect(null, {
+    addEvent
+})(EventDetails);
