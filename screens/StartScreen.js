@@ -1,8 +1,9 @@
 import  React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, Header } from 'react-native-elements';
+import { Button, Header, ThemeProvider } from 'react-native-elements';
 import InputWithIcon from '../components/InputWithIcon';
+
 export default class StartScreen extends Component {
 
     constructor(props) {
@@ -12,26 +13,30 @@ export default class StartScreen extends Component {
         }
       }
     
-      updateName = (event) => this.setState({name: event.target.value})
+      updateName = (name) => this.setState({name})
     
-      onSubmit = () => console.log(this.state.name)
+      onSubmit = () => {
+        const currentName = this.state.name
+        if(currentName !== "") {
+            this.props.navigation.navigate('Home',{name: currentName})
+        }
+      }
 
       render() {
         return (
-            <View style={styles.container}>
-            <Header
-              centerComponent={{ text: 'Event Tracker', style: { color: '#fff' } }}
-            />
-              <View style={styles.form}>
-                <InputWithIcon
-                    icon={<Icon name='user' size={24} color='black' style={{paddingRight: 10}}/>}
-                    title={'Enter Your Name'}
-                    onChange={this.updateName}
-                    value={this.state.name}
-                />
-                <Button title="Submit" onClick={this.onSubmit}/>
-              </View>
-            </View>
+            <ThemeProvider>
+                <View style={styles.container}>
+                <View style={styles.form}>
+                    <InputWithIcon
+                        icon={<Icon name='user' size={24} color='black' style={{paddingRight: 10}}/>}
+                        title={'Enter Your Name'}
+                        onChange={this.updateName}
+                        value={this.state.name}
+                    />
+                    <Button title="Submit" onPress={this.onSubmit}/>
+                </View>
+                </View>
+            </ThemeProvider>
         );
       }
     }

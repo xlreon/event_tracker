@@ -11,7 +11,7 @@ export default class InputWithIcon extends Component {
         const { title, icon, onChange, value } = this.props;
         const props = { 
             placeholder: title,
-            onChange: onChange, 
+            onChangeText: onChange, 
             leftIcon: icon, 
             value: value}
             ;
