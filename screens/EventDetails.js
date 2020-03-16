@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { Text, Card, Button } from 'react-native-elements';
+import { Text, Card, Button, Image } from 'react-native-elements';
 import { addEvent } from '../actions';
 import GestureRecognizer from 'react-native-swipe-gestures';
 
@@ -22,6 +22,10 @@ class EventDetails extends Component {
             >
                 <View>
                     <Card>
+                        <Image
+                            source={{ uri: event.url }}
+                            style={{ width: '100%', height: 200}}
+                        />
                         <Text h3>{event.name}</Text>
                         <Text h3>{event.location}</Text>
                         <Text h3>{event.entryType}</Text>
