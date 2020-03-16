@@ -4,10 +4,11 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Card, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
+import { updateEvent } from '../actions';
 
 class TrackedEvents extends Component {
 
-    onPressHandler = action  => console.log(action)
+    onPressHandler = index => updateEvent(index)
 
     render() {
         return (
@@ -21,9 +22,9 @@ class TrackedEvents extends Component {
                         subtitle={l.location}
                     />
                     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <Icon name='caret-up' size={30} color='black' onPress={() => this.onPressHandler('UP')}/>
-                        <Icon name='caret-down' size={30} color='black' onPress={() => this.onPressHandler('DOWN')}/>
-                        <Icon name='trash-o' size={30} color='black' onPress={() => this.onPressHandler('DELETE')}/>
+                        <Icon name='caret-up' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
+                        <Icon name='caret-down' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
+                        <Icon name='trash-o' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
                     </View>
                 </Card>
                 ))
@@ -39,4 +40,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(TrackedEvents);
+export default connect(mapStateToProps, {updateEvent})(TrackedEvents);

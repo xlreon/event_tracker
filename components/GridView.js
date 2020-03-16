@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, FlatList, Dimensions } from 'react-native';
 import { ListItem, Card } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -11,42 +11,53 @@ export default class GridView extends Component {
 
     onPressHandler = (l) => this.props.navigation.navigate('Details',{event: l})
 
+    keyExtractor = (item, index) => index.toString()
+
+    renderItem = ({ item, index }) => {
+        if(index%2 === 0) {
+            const firstItem = this.props.events[index]
+            const lastItem = this.props.events[index+1]
+            return (
+                <View style={styles.gridRow}>
+                    <Card>
+                        <View style={styles.gridElement}>
+                            <ListItem
+                                key={index}
+                                title={firstItem.name}
+                                subtitle={firstItem.location}
+                                onPress={() => this.onPressHandler(firstItem)}
+                                />
+                        </View>
+                    </Card>
+                    <Card>
+                        <View style={styles.gridElement}>
+                    {index+1 !== this.props.events.length && 
+                        <ListItem
+                            key={index+1}
+                            title={lastItem.name}
+                            subtitle={lastItem.location}
+                            onPress={() => this.onPressHandler(lastItem)}
+                            />}
+                        </View>
+                    </Card>
+                </View>
+                ) 
+        }
+        else 
+            return null
+    }
+
     render() {
+        const scrollContainerHeight  = Dimensions.get('window').height
         return (
-            <ScrollView>
-            <View style={styles.container}>
-                <View style={{flex: 1}}>
-                {
-                this.props.events.map((l, i) => i < this.props.events.length/2 && (
-                <Card>
-                    <ListItem
-                        key={i}
-                        title={l.name}
-                        subtitle={l.location}
-                        containerStyle={{height: 100}}
-                        onPress={() => this.onPressHandler(l)}
-                    />
-                </Card>
-                    ))
-                }
-                </View>
-                <View style={{flex: 1}}>
-                {
-                this.props.events.map((l, i) => i >= this.props.events.length/2 && (
-                <Card>
-                    <ListItem
-                        key={i}
-                        title={l.name}
-                        subtitle={l.location}
-                        containerStyle={{height: 100}}
-                        onPress={() => this.onPressHandler(l)}
-                    />
-                </Card>
-                    ))
-                }
-                </View>
-                </View>
+            <ScrollView contentContainerStyle={{height: scrollContainerHeight}}>
+                <FlatList
+                keyExtractor={this.keyExtractor}
+                data={this.props.events}
+                renderItem={this.renderItem}
+                />
             </ScrollView>
+
         );
     }
 }
@@ -54,8 +65,14 @@ export default class GridView extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: Dimensions.get('window').height * 2,
+        paddingBottom: 20
+    },
+    gridRow: {
         flexDirection: 'row',
-        padding: 20
+        justifyContent: 'space-evenly',
+    },
+    gridElement: {
+        width: Dimensions.get('window').width/2
     }
 })
