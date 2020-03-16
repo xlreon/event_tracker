@@ -11,79 +11,72 @@ const events =
         key: 1,
         name: 'Metallica Concert',
         location: 'Palace Grounds',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1jp5KqZ0ETDIQTgTbpjawYJvStO31kDUx',
         entryType: '(paid entry)'
     },
     {
         key: 2,
         name: 'Saree Exhibition',
         location: 'Malleswaram Grounds',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1JYEcPjME9dCDyf_hciYduLqZtynVwatV',
         entryType: '(free entry)'
     },
     {
         key: 3,
         name: 'Wine tasting event',
         location: 'Links Brewery',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1hfEuUZQ-B8_4hOocxRuiMFhfX5RMnHjj',
         entryType: '(paid entry)'
     },
     {
         key: 4,
         name: 'Startups Meet',
         location: 'Kanteerava Indoor Stadium',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1dDi7B1gRjBZLZZ0PUBkeOuAo2kHGRcdT',
         entryType: '(paid entry)'
     },
     {
         key: 5,
         name: 'Summer Noon Party',
         location: 'Kumara Park',
-        url: '',
+        url: 'https://drive.google.com/uc?id=17JxsNSEb86hx-tCnN4HMmmwhb9MYHyLS',
         entryType: '(paid entry)'
     },
     {
         key: 6,
         name: 'Rock and Roll nights',
         location: 'Sarjapur Road',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1FCZlhxAwKhnDXnrKFeLD5DBtnUhC4ija',
         entryType: '(paid entry)'
     },
     {
         key: 7,
         name: 'Barbaque Fridays ',
         location: 'Whitefield',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1X2bdk0m2w3w6RsTa91XIaSl-423Wueg0',
         entryType: '(paid entry)'
     },
     {
         key: 8,
         name: 'Summer Workshop',
         location: 'Indiranagar',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1mlOuon2lpCzKydIYhrJEYzoAVWfe5UDf',
         entryType: '(free entry)'
     },
     {
         key: 9,
         name: 'Impressions & Expressions',
         location: 'MG Road',
-        url: '',
+        url: 'https://drive.google.com/uc?id=w5WwAM4fekSs9OgLmS0Hb0wGc',
         entryType: '(free entry)'
     },
     {
         key: 10,
         name: 'Italian Carnival',
         location: 'Electronic City',
-        url: '',
+        url: 'https://drive.google.com/uc?id=1NlWaxk5xNS5Nmq9qWwpclW8EBYzmMGmy',
         entryType: '(free entry)'
-    },
-    {
-        key: 11,
-        name: 'Italian Carnival',
-        location: 'Electronic City',
-        url: '',
-        entryType: '(free entry)'
-    },
+    }
 ]
 
 export default class HomeScreen extends Component {

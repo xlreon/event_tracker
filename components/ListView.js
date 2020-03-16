@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Col } from 'react-native-easy-grid';
+import { Grid, Row, Col } from 'react-native-easy-grid';
 import { ListItem, Card, Image } from 'react-native-elements';
 
 export default class ListView extends Component {
@@ -17,16 +17,22 @@ export default class ListView extends Component {
             {
                 this.props.events.map((l, i) => (
                 <Card>
+                    <Row>
+                        <Col>
                         <Image
                             source={{ uri: l.url }}
-                            style={{ width: '100%', height: 100}}
+                            style={{ width: '80%', height: 100}}
                         />
-                    <ListItem
-                        key={i}
-                        title={l.name}
-                        subtitle={l.location}
-                        onPress={() => this.onPressHandler(l)}
-                    />
+                        </Col>
+                        <Col>
+                        <ListItem
+                            key={i}
+                            title={l.name}
+                            subtitle={l.location}
+                            onPress={() => this.onPressHandler(l)}
+                        />
+                        </Col>
+                    </Row>
                 </Card>
                 ))
             }

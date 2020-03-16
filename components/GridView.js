@@ -24,7 +24,7 @@ export default class GridView extends Component {
                         <Card>
                             <View style={styles.gridElement}>
                                     <Image
-                                    source={{ uri: item.url }}
+                                    source={{ uri: firstItem.url }}
                                     style={{ width: '100%', height: 100}}
                                     />
                                 <ListItem
@@ -42,7 +42,7 @@ export default class GridView extends Component {
                             <View style={styles.gridElement}>
                                 <Image
                                 style={{ width: '100%', height: 100}}
-                                source={{ uri: item.url }}
+                                source={{ uri: lastItem.url }}
                             />
                             <ListItem
                                 key={index+1}
@@ -77,6 +77,6 @@ export default class GridView extends Component {
 
 const styles = StyleSheet.create({
     gridElement: {
-        height: 200
+        height: 250
     }
 })
