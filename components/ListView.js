@@ -17,7 +17,7 @@ export default class ListView extends Component {
             {
                 this.props.events.map((l, i) => (
                 <Card>
-                    <Row>
+                    <Row onPress={() => this.onPressHandler(l)}>
                         <Col>
                         <Image
                             source={{ uri: l.url }}
@@ -29,7 +29,6 @@ export default class ListView extends Component {
                             key={i}
                             title={l.name}
                             subtitle={l.location}
-                            onPress={() => this.onPressHandler(l)}
                         />
                         </Col>
                     </Row>

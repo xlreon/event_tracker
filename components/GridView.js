@@ -20,7 +20,7 @@ export default class GridView extends Component {
             return (
                 <Grid>
                     <Row>
-                        <Col>
+                        <Col onPress={() => this.onPressHandler(firstItem)}>
                         <Card>
                             <View style={styles.gridElement}>
                                     <Image
@@ -31,12 +31,11 @@ export default class GridView extends Component {
                                     key={index}
                                     title={firstItem.name}
                                     subtitle={firstItem.location}
-                                    onPress={() => this.onPressHandler(firstItem)}
                                     />
                             </View>
                         </Card>
                         </Col>
-                        <Col>
+                        <Col onPress={() => this.onPressHandler(lastItem)}>
                         {index+1 !== this.props.events.length && 
                         <Card>
                             <View style={styles.gridElement}>
@@ -48,7 +47,6 @@ export default class GridView extends Component {
                                 key={index+1}
                                 title={lastItem.name}
                                 subtitle={lastItem.location}
-                                onPress={() => this.onPressHandler(lastItem)}
                                 />
                             </View>
                         </Card>
