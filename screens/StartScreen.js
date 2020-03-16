@@ -1,7 +1,7 @@
 import  React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button, Header, ThemeProvider } from 'react-native-elements';
+import { Button, Avatar, ThemeProvider, Text } from 'react-native-elements';
 import InputWithIcon from '../components/InputWithIcon';
 
 export default class StartScreen extends Component {
@@ -27,13 +27,26 @@ export default class StartScreen extends Component {
             <ThemeProvider>
                 <View style={styles.container}>
                 <View style={styles.form}>
+                  <Avatar
+                          size="xlarge"
+                          rounded
+                          source={{
+                            uri:
+                                'https://drive.google.com/uc?id=1SAe9myO5Cn3oyLHHlAMTHEzJrt0Sxjci',
+                              }}
+                          containerStyle={{height: Dimensions.get('window').width/3, width: Dimensions.get('window').width/3}}
+                          activeOpacity={0.7}
+                      />
+                    <Text h4>
+                        Welcome to Event Tracker
+                    </Text>
                     <InputWithIcon
                         icon={<Icon name='user' size={24} color='black' style={{paddingRight: 10}}/>}
                         title={'Enter Your Name'}
                         onChange={this.updateName}
                         value={this.state.name}
                     />
-                    <Button title="Submit" onPress={this.onSubmit}/>
+                    <Button title="Submit" onPress={this.onSubmit} containerStyle={{width: '100%'}}/>
                 </View>
                 </View>
             </ThemeProvider>
@@ -50,11 +63,10 @@ const styles = StyleSheet.create({
     },
     form: {
       flexDirection: "column",
-      justifyContent: "space-between",
-      alignItems: 'stretch',
-      padding: 20,
+      justifyContent: "space-evenly",
+      alignItems: 'center',
+      paddingHorizontal: 20,
       flex: 1,
-      marginTop: 350
     }
   });
   

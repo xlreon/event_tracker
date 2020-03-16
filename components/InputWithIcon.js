@@ -13,7 +13,9 @@ export default class InputWithIcon extends Component {
             placeholder: title,
             onChangeText: onChange, 
             leftIcon: icon, 
-            value: value}
+            value: value,
+            containerStyle: {marginBottom: 150}
+        }
             ;
         return (
             <Input {...props} />

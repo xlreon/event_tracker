@@ -100,8 +100,6 @@ export default class HomeScreen extends Component {
       
     render() {
         const name = this.props.route.params.name;
-        const firstLetter = name[0]
-        const lastName = name.split(" ") !== [] ? name.split(" ")[1][0] : ''
         const buttons = ['List', 'Grid']
         const { selectedIndex } = this.state
         return (
@@ -114,7 +112,10 @@ export default class HomeScreen extends Component {
                     <Avatar
                         size="xlarge"
                         rounded
-                        title={firstLetter+lastName}
+                        source={{
+                            uri:
+                              'https://drive.google.com/uc?id=1SAe9myO5Cn3oyLHHlAMTHEzJrt0Sxjci',
+                          }}
                         activeOpacity={0.7}
                     />
                     <Text h3>
