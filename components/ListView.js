@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Dimensions } from 'react-native';
-import { ListItem, Card } from 'react-native-elements';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Grid, Col } from 'react-native-easy-grid';
+import { ListItem, Card, Image } from 'react-native-elements';
 
 export default class ListView extends Component {
 
@@ -12,12 +11,16 @@ export default class ListView extends Component {
     onPressHandler = (l) => this.props.navigation.navigate('Details',{event: l})
 
     render() {
-        const scrollContainerHeight  = Dimensions.get('window').height * 2
         return (
-            <ScrollView contentContainerStyle={{height: scrollContainerHeight}}>
+                <Grid>
+                    <Col>
             {
                 this.props.events.map((l, i) => (
                 <Card>
+                        <Image
+                            source={{ uri: l.url }}
+                            style={{ width: '100%', height: 100}}
+                        />
                     <ListItem
                         key={i}
                         title={l.name}
@@ -27,7 +30,8 @@ export default class ListView extends Component {
                 </Card>
                 ))
             }
-        </ScrollView>
+                </Col>
+            </Grid>
         );
     }
 }

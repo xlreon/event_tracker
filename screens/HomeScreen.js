@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Avatar, Text, ButtonGroup } from 'react-native-elements';
 import ListView1 from '../components/ListView';
 import GridView from '../components/GridView';
@@ -11,62 +11,79 @@ const events =
         key: 1,
         name: 'Metallica Concert',
         location: 'Palace Grounds',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 2,
         name: 'Saree Exhibition',
         location: 'Malleswaram Grounds',
+        url: '',
         entryType: '(free entry)'
     },
     {
         key: 3,
         name: 'Wine tasting event',
         location: 'Links Brewery',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 4,
         name: 'Startups Meet',
         location: 'Kanteerava Indoor Stadium',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 5,
         name: 'Summer Noon Party',
         location: 'Kumara Park',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 6,
         name: 'Rock and Roll nights',
         location: 'Sarjapur Road',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 7,
         name: 'Barbaque Fridays ',
         location: 'Whitefield',
+        url: '',
         entryType: '(paid entry)'
     },
     {
         key: 8,
         name: 'Summer Workshop',
         location: 'Indiranagar',
+        url: '',
         entryType: '(free entry)'
     },
     {
         key: 9,
         name: 'Impressions & Expressions',
         location: 'MG Road',
+        url: '',
         entryType: '(free entry)'
     },
     {
         key: 10,
         name: 'Italian Carnival',
         location: 'Electronic City',
+        url: '',
         entryType: '(free entry)'
-    }
+    },
+    {
+        key: 11,
+        name: 'Italian Carnival',
+        location: 'Electronic City',
+        url: '',
+        entryType: '(free entry)'
+    },
 ]
 
 export default class HomeScreen extends Component {
@@ -95,10 +112,11 @@ export default class HomeScreen extends Component {
         const buttons = ['List', 'Grid']
         const { selectedIndex } = this.state
         return (
-            <View style={styles.container}>
+            <View style={{paddingTop: 30, paddingBottom: 30}}>
             <GestureRecognizer
                 onSwipeLeft={() => this.props.navigation.navigate('TrackedEvents')}
             >
+            <ScrollView containerStyle={styles.container}>
                 <View style={styles.userDetails}>
                     <Avatar
                         size="xlarge"
@@ -110,13 +128,14 @@ export default class HomeScreen extends Component {
                         {name}
                     </Text>
                 </View>
-                <ButtonGroup
+            <ButtonGroup
                     onPress={this.updateIndex}
                     selectedIndex={selectedIndex}
                     buttons={buttons}
                     containerStyle={{height: 40}}
                 />
                 {this.getView(selectedIndex)}
+            </ScrollView>
             </GestureRecognizer>
             </View>
         );
@@ -125,12 +144,8 @@ export default class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      paddingTop: 30,
-      flexDirection: "column",
+      flexGrow: 1,
       backgroundColor: '#fff',
-      alignItems: "stretch",
-      justifyContent: "flex-start",
     },
     userDetails: {
         flexDirection: "column",

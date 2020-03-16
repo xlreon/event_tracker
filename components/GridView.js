@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList, Dimensions } from 'react-native';
-import { ListItem, Card } from 'react-native-elements';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, View, FlatList } from 'react-native';
+import { Grid, Row, Col } from 'react-native-easy-grid';
+import { ListItem, Card, Image } from 'react-native-elements';
 
 export default class GridView extends Component {
 
@@ -18,29 +18,44 @@ export default class GridView extends Component {
             const firstItem = this.props.events[index]
             const lastItem = this.props.events[index+1]
             return (
-                <View style={styles.gridRow}>
-                    <Card>
-                        <View style={styles.gridElement}>
+                <Grid>
+                    <Row>
+                        <Col>
+                        <Card>
+                            <View style={styles.gridElement}>
+                                    <Image
+                                    source={{ uri: item.url }}
+                                    style={{ width: '100%', height: 100}}
+                                    />
+                                <ListItem
+                                    key={index}
+                                    title={firstItem.name}
+                                    subtitle={firstItem.location}
+                                    onPress={() => this.onPressHandler(firstItem)}
+                                    />
+                            </View>
+                        </Card>
+                        </Col>
+                        <Col>
+                        {index+1 !== this.props.events.length && 
+                        <Card>
+                            <View style={styles.gridElement}>
+                                <Image
+                                style={{ width: '100%', height: 100}}
+                                source={{ uri: item.url }}
+                            />
                             <ListItem
-                                key={index}
-                                title={firstItem.name}
-                                subtitle={firstItem.location}
-                                onPress={() => this.onPressHandler(firstItem)}
+                                key={index+1}
+                                title={lastItem.name}
+                                subtitle={lastItem.location}
+                                onPress={() => this.onPressHandler(lastItem)}
                                 />
-                        </View>
-                    </Card>
-                    <Card>
-                        <View style={styles.gridElement}>
-                    {index+1 !== this.props.events.length && 
-                        <ListItem
-                            key={index+1}
-                            title={lastItem.name}
-                            subtitle={lastItem.location}
-                            onPress={() => this.onPressHandler(lastItem)}
-                            />}
-                        </View>
-                    </Card>
-                </View>
+                            </View>
+                        </Card>
+                                }
+                        </Col>
+                    </Row>
+                </Grid>
                 ) 
         }
         else 
@@ -48,15 +63,12 @@ export default class GridView extends Component {
     }
 
     render() {
-        const scrollContainerHeight  = Dimensions.get('window').height
         return (
-            <ScrollView contentContainerStyle={{height: scrollContainerHeight}}>
                 <FlatList
                 keyExtractor={this.keyExtractor}
                 data={this.props.events}
                 renderItem={this.renderItem}
                 />
-            </ScrollView>
 
         );
     }
@@ -64,15 +76,7 @@ export default class GridView extends Component {
 
 
 const styles = StyleSheet.create({
-    container: {
-        height: Dimensions.get('window').height * 2,
-        paddingBottom: 20
-    },
-    gridRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-    },
     gridElement: {
-        width: Dimensions.get('window').width/2
+        height: 200
     }
 })
