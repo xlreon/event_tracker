@@ -19,7 +19,39 @@ function reducer(state = initialState, action) {
         case AppActions.DELETE_EVENT:
             return state
         case AppActions.UPDATE_EVENT:
-            return state
+            if(payload && payload.eventType) {
+                let firstIndex, secondIndex = null
+                switch(payload.eventType) {
+                    case "UP":
+                        firstIndex = (payload.index !== 0 ? payload.index-1:0)
+                        secondIndex = payload.index
+                    return {
+                            ...state,
+                            events: [...state.events.map(function(element, index) {
+                                if (index === firstIndex) return state.events[secondIndex];
+                                else if (index === secondIndex) return state.events[firstIndex];
+                                else return element;
+                                })]
+                            }
+                    case "DOWN":
+                        firstIndex = payload.index
+                        secondIndex = (payload.index !== state.events.length-1 ? payload.index+1:payload.index)
+                        return {
+                            ...state,
+                            events: [...state.events.map(function(element, index) {
+                                if (index === firstIndex) return state.events[secondIndex];
+                                else if (index === secondIndex) return state.events[firstIndex];
+                                else return element;
+                                })]}
+                    case 'DELETE':
+                        return {
+                            ...state,
+                            events: [...state.events.filter((ele,ind) => ind !== payload.index)],
+                        }
+                    default:
+                        return state
+                }
+            }
             default:
         return state;
     }

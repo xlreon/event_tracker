@@ -8,6 +8,6 @@ const addEvent = event => dispatch => dispatch({type: AppActions.ADD_EVENT, payl
 
 const deleteEvent = index => dispatch => dispatch({type: AppActions.DELETE_EVENT, payload: index})
 
-const updateEvent = events => dispatch => dispatch({type: AppActions.UPDATE_EVENT, payload: events})
+const updateEvent = (eventType, index) => dispatch => dispatch({type: AppActions.UPDATE_EVENT, payload: {eventType, index}})
 
 export { AppActions, addEvent, deleteEvent, updateEvent };

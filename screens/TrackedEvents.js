@@ -6,9 +6,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { updateEvent } from '../actions';
 
+const eventTypes = {
+    UP: "UP",
+    DOWN: "DOWN",
+    DELETE: "DELETE"
+}
+
 class TrackedEvents extends Component {
 
-    onPressHandler = index => updateEvent(index)
+    onPressHandler = (eventType, index) => this.props.updateEvent(eventType, index)
 
     render() {
         return (
@@ -22,9 +28,9 @@ class TrackedEvents extends Component {
                         subtitle={l.location}
                     />
                     <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <Icon name='caret-up' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
-                        <Icon name='caret-down' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
-                        <Icon name='trash-o' size={30} color='black' onPress={() => this.onPressHandler(i)}/>
+                        <Icon name='caret-up' size={30} color='black' onPress={() => this.onPressHandler(eventTypes.UP, i)}/>
+                        <Icon name='caret-down' size={30} color='black' onPress={() => this.onPressHandler(eventTypes.DOWN, i)}/>
+                        <Icon name='trash-o' size={30} color='black' onPress={() => this.onPressHandler(eventTypes.DELETE, i)}/>
                     </View>
                 </Card>
                 ))
